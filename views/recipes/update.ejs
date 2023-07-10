@@ -1,0 +1,23 @@
+<h1>Update Recipe</h1>
+
+<form method="POST" action="/recipes/<%-recipe._id%>/update" style="display: flex; flex-direction: column; align-items: center;">
+  <label>Name: <input name="name" value="<%= recipe.name %>"></label>
+
+  <label>Difficulty:
+    <select name="difficulty">
+      <!-- 
+          Ternary:
+          condition ? iftrue : iffalse(else)
+         -->
+      <% difficulty.forEach(difOption => { %>
+      <option value="<%- difOption %>" <%- difOption === recipe.difficulty ? 'selected' : '' %>><%- difOption %></option>
+      <% }) %>
+    </select>
+  </label>
+
+  <label>Ingredients: <input name="ingredients" value="<%= recipe.ingredients %>"></label>
+  <label>Duration: <input type="number" name="duration" value="<%= recipe.duration %>"></label>
+  <label>Instructions: <input name="instructions" value="<%= recipe.instructions %>"></label>
+
+  <button type="submit">Update Recipe</button>
+</form>

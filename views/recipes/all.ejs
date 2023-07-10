@@ -1,0 +1,6 @@
+<h1>All recipes</h1>
+<ul>
+  <% allRecipes.forEach(recipe => { %>
+  <li><a href="/recipes/<%-recipe._id%>"><%- recipe.name %></a></li>
+  <% }) %>
+</ul>
